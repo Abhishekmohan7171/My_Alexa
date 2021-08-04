@@ -44,5 +44,28 @@ def run_alexa():
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk('Current time is' + time)
 
+    elif 'who is' in command:
+        person = command.replace('who is','')
+        info = wikipedia.summary(person, 1)
+        talk(info)
+        print(info)
 
-run_alexa()
+    elif 'go for a date' in command:
+        talk('Later ! I have a headache.')
+
+    elif 'joke' in command:
+        talk(pyjokes.get_joke())
+
+    elif 'are you single' in command:
+        talk('Fuck off! None of your buisness')
+
+    elif 'i love you' in command:
+        talk('I love you too babes')
+
+    else:
+        talk("I didnt hear you , Can you ask again?")
+
+
+
+while True:
+    run_alexa()
